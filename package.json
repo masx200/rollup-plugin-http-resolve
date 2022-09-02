@@ -1,6 +1,6 @@
 {
     "name": "@masx200/rollup-plugin-http-resolve",
-    "version": "4.0.1-alpha.0",
+    "version": "5.0.0",
     "license": "MIT",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
