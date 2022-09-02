@@ -1,0 +1,21 @@
+{
+  "name": "rollup-plugin-http-resolve",
+  "version": "4.0.1-alpha.0",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "yarn build",
+    "test": "jest",
+    "build": "tsc -p .",
+    "prepare": "yarn build"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "gitHead": "b5baf8d69f1d0a55ef644bf3a7fbfdee2fedce50",
+  "__npminstall_done": true,
+  "_from": "rollup-plugin-http-resolve@4.0.1-alpha.0",
+  "_resolved": "https://registry.npmmirror.com/rollup-plugin-http-resolve/-/rollup-plugin-http-resolve-4.0.1-alpha.0.tgz"
+}
