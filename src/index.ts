@@ -31,7 +31,7 @@ export const httpResolve = function httpResolve_({
 }: HttpResolveOptions = {}) {
     installNodeFetch();
     return {
-        name: "http-resolve",
+        name: "rollup-plugin-http-resolve",
         async resolveId(id: string, importer: string) {
             if (/^https?:\/\//.test(id)) return id;
             log("[http-resolve:resolveId:enter]", id, "from", importer);
