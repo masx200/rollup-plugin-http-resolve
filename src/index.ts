@@ -13,8 +13,7 @@ function isHttpProtocol(id: string | undefined | null) {
 
 const DEBUG = false;
 const log = (...args: any) => DEBUG && console.log(...args);
-
-type HttpResolveOptions = {
+export type HttpResolveOptions = {
     cache?: any;
     fetcher?: (url: string) => Promise<string>;
     onRequest?: (url: string) => void;

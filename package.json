@@ -3,12 +3,12 @@
     "version": "5.0.1",
     "license": "MIT",
     "main": "lib/index.js",
-    "types": "lib/index.d.ts",
+    "types": "./src/index.ts",
     "module": "lib/index.mjs",
     "exports": {
         "import": "./lib/index.mjs",
         "require": "./lib/index.js",
-        "types": "./lib/index.d.ts"
+        "types": "./src/index.ts"
     },
     "scripts": {
         "format": "prettier --write *.json *.md */*.ts  */*.js",
