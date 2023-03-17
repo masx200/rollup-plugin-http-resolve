@@ -38,6 +38,6 @@
         "rollup": "^3.9.0",
         "rollup-external-modules": "^2.0.0",
         "rollup-plugin-esbuild": "^5.0.0",
-        "typescript": "^4.8.2"
+        "typescript": "^5.0.2"
     }
 }
