@@ -9,20 +9,21 @@ npm install @masx200/rollup-plugin-http-resolve --save
 ```ts
 import { fileCache, httpResolve } from "@masx200/rollup-plugin-http-resolve";
 
- httpResolve({ cache: new fileCache() })
- ```
+httpResolve({ cache: new fileCache() });
+```
+
 ## Example
 
 ```ts
 // rollup.config.js
 import { httpResolve } from "@masx200/rollup-plugin-http-resolve";
 export default {
-  input: "index.js",
-  plugins: [
-    httpResolve({
-      cache,
-    }),
-  ],
+    input: "index.js",
+    plugins: [
+        httpResolve({
+            cache,
+        }),
+    ],
 };
 ```
 
@@ -30,7 +31,7 @@ export default {
 
 ```ts
 const vol = Volume.fromJSON({
-  "/index.js": `
+    "/index.js": `
     import {h} from "preact";
     console.log(h);
     `,
@@ -38,18 +39,18 @@ const vol = Volume.fromJSON({
 
 const memfs = createFs(vol) as IPromisesAPI;
 const rolled = await rollup({
-  input: "/index.js",
-  plugins: [
-    httpResolve({
-      fallback(id) {
-        // Avoid local relative path
-        if (!id.startsWith(".")) {
-          return `https://esm.sh/${id}`;
-        }
-      },
-    }),
-    memfsPlugin(memfs),
-  ],
+    input: "/index.js",
+    plugins: [
+        httpResolve({
+            fallback(id) {
+                // Avoid local relative path
+                if (!id.startsWith(".")) {
+                    return `https://esm.sh/${id}`;
+                }
+            },
+        }),
+        memfsPlugin(memfs),
+    ],
 });
 const out = await rolled.generate({ format: "es" });
 const code = out.output[0].code;
