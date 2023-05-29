@@ -4,18 +4,20 @@
 npm install @masx200/rollup-plugin-http-resolve --save
 ```
 
+缓存默认为内存缓存, 添加了文件系统缓存的功能,可以按需使用
+
 ## Example
 
 ```ts
 // rollup.config.js
 import { httpResolve } from "@masx200/rollup-plugin-http-resolve";
 export default {
-    input: "index.js",
-    plugins: [
-        httpResolve({
-            cache,
-        }),
-    ],
+  input: "index.js",
+  plugins: [
+    httpResolve({
+      cache,
+    }),
+  ],
 };
 ```
 
@@ -23,7 +25,7 @@ export default {
 
 ```ts
 const vol = Volume.fromJSON({
-    "/index.js": `
+  "/index.js": `
     import {h} from "preact";
     console.log(h);
     `,
@@ -31,18 +33,18 @@ const vol = Volume.fromJSON({
 
 const memfs = createFs(vol) as IPromisesAPI;
 const rolled = await rollup({
-    input: "/index.js",
-    plugins: [
-        httpResolve({
-            fallback(id) {
-                // Avoid local relative path
-                if (!id.startsWith(".")) {
-                    return `https://esm.sh/${id}`;
-                }
-            },
-        }),
-        memfsPlugin(memfs),
-    ],
+  input: "/index.js",
+  plugins: [
+    httpResolve({
+      fallback(id) {
+        // Avoid local relative path
+        if (!id.startsWith(".")) {
+          return `https://esm.sh/${id}`;
+        }
+      },
+    }),
+    memfsPlugin(memfs),
+  ],
 });
 const out = await rolled.generate({ format: "es" });
 const code = out.output[0].code;
