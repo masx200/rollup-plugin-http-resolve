@@ -7,6 +7,8 @@ npm install @masx200/rollup-plugin-http-resolve --save
 缓存默认为内存缓存, 添加了文件系统缓存的功能,可以按需使用
 
 ```ts
+import { fileCache, httpResolve } from "@masx200/rollup-plugin-http-resolve";
+
  httpResolve({ cache: new fileCache() })
  ```
 ## Example
