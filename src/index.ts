@@ -1,6 +1,8 @@
+import type { CacheType } from "./CacheType";
 import { Plugin } from "rollup";
-import path from "path";
+import { fileCache } from "./fileCache";
 import installNodeFetch from "@hattip/polyfills/node-fetch";
+import path from "path";
 
 export type ResolveIdFallback = (
     specifier: string,
@@ -14,13 +16,13 @@ function isHttpProtocol(id: string | undefined | null) {
 const DEBUG = false;
 const log = (...args: any) => DEBUG && console.log(...args);
 export type HttpResolveOptions = {
-    cache?: any;
+    cache?: CacheType;
     fetcher?: (url: string) => Promise<string>;
     onRequest?: (url: string) => void;
     onUseCache?: (url: string) => void;
     resolveIdFallback?: ResolveIdFallback;
 };
-const defaultCache = new Map();
+export const defaultCache = new Map();
 export const httpResolve = function httpResolve_({
     cache = defaultCache,
     onRequest,
@@ -101,3 +103,4 @@ export const httpResolve = function httpResolve_({
         },
     } as Plugin;
 };
+export { CacheType, fileCache };

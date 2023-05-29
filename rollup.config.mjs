@@ -1,7 +1,10 @@
 import { defineConfig } from "rollup";
 import esbuild from "rollup-plugin-esbuild";
 import external from "rollup-external-modules";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+
 const plugins = [
+    nodeResolve(),
     esbuild({
         // All options are optional
         include: [/\.[jt]sx?$/], // default, inferred from `loaders` option
