@@ -37,7 +37,7 @@
         "@rollup/plugin-node-resolve": "^15.0.2",
         "@types/node": "^20.2.5",
         "esbuild": "^0.17.0",
-        "prettier": "^2.7.1",
+        "prettier": "^3.0.0",
         "rollup": "^3.23.0",
         "rollup-external-modules": "^2.0.0",
         "rollup-plugin-esbuild": "^5.0.0",
